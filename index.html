@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
-    <section class="container">
+    <section class="container mb-3">
       <h1 class="text-center fw-bold my-4">AI Universe Hub</h1>
       <button
         id="btn-sort"
@@ -26,32 +26,8 @@
       </button>
 
       <!-- cards -->
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div id="card-col" class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text border-bottom border-2 pb-3">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-            <div class="card-bottom d-flex justify-content-between ps-3 py-3">
-              <div>
-                <h5>ChatGPT</h5>
-                <img src="./images/icons/calander.svg" alt="" /><span
-                  class="ms-2"
-                  >11/10/2022</span
-                >
-              </div>
-              <button id="btn-details" class="btn">
-                <img class="arrow" src="./images/icons/arrow.svg" alt="" />
-              </button>
-            </div>
-          </div>
-        </div>
+      <div id="card-col" class="row row-cols-1 row-cols-md-3 g-4 card-deck">
+       
       </div>
     </section>
 

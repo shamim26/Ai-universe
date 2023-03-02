@@ -3,3 +3,7 @@
     background-color: #eb575712;
     padding: 11px;
 }
+.card-img-top{
+    border-radius: 23px !important;
+    height: 250px !important;
+}
