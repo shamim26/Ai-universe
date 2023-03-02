@@ -4,6 +4,7 @@ const loadData = (dataLimit) => {
     .then((data) => displayData(data.data.tools, dataLimit));
 };
 
+// display data in cards
 const displayData = (dataLists, dataLimit) => {
   console.log(dataLists);
   const cardSection = document.getElementById("card-col");
@@ -52,10 +53,24 @@ const displayData = (dataLists, dataLimit) => {
     `;
     cardSection.appendChild(cardDiv);
   });
+//   spinner condition
+  loadingSpinner(false);
 };
 
+// see more button action
 document.getElementById("btn-see-more").addEventListener("click", function () {
   loadData();
 });
 
 loadData(6);
+
+// spinner
+const loadingSpinner = (isLoading) => {
+  const spinner = document.getElementById("spinner");
+  if (isLoading) {
+    spinner.classList.remove("d-none");
+  } else {
+    spinner.classList.add("d-none");
+  }
+};
+loadingSpinner(true);
