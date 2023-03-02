@@ -1,13 +1,22 @@
-const loadData = () => {
+const loadData = (dataLimit) => {
   fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then((res) => res.json())
-    .then((data) => displayData(data.data.tools));
+    .then((data) => displayData(data.data.tools, dataLimit));
 };
 
-const displayData = (dataLists) => {
+const displayData = (dataLists, dataLimit) => {
+  console.log(dataLists);
   const cardSection = document.getElementById("card-col");
+  cardSection.innerHTML = "";
+  //   show only 6 card
+  const seeMore = document.getElementById("btn-see-more");
+  if (dataLists.length > 6 && dataLimit) {
+    dataLists = dataLists.slice(0, 6);
+    seeMore.classList.remove("d-none");
+  } else {
+    seeMore.classList.add("d-none", true);
+  }
   dataLists.forEach((data) => {
-    console.log(data);
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col");
     cardDiv.innerHTML = `
@@ -16,9 +25,15 @@ const displayData = (dataLists) => {
         <div class="card-body">
             <h5 class="card-title">Features</h5>
             <ol class="card-text border-bottom       border-2 ps-3 pb-3">
-                <li>${data.features[0]}</li>
-                <li>${data.features[1]}</li>
-                <li>${data.features[2]}</li>
+                <li>${
+                  data.features[0] ? data.features[0] : "Not Available"
+                }</li>
+                <li>${
+                  data.features[1] ? data.features[1] : "Not Available"
+                }</li>
+                <li>${
+                  data.features[2] ? data.features[2] : "Not Available"
+                }</li>
             </ol>
         </div>
         <div class="card-bottom d-flex      justify-content-between ps-3 pb-3">
@@ -39,4 +54,8 @@ const displayData = (dataLists) => {
   });
 };
 
-loadData();
+document.getElementById("btn-see-more").addEventListener("click", function () {
+  loadData();
+});
+
+loadData(6);
