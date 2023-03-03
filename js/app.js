@@ -16,7 +16,7 @@ const displayData = (dataLists, dataLimit) => {
   } else {
     seeMore.classList.add("d-none", true);
   }
-  //   dynamic card
+  //   dynamic cards
   dataLists.forEach((data) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col");

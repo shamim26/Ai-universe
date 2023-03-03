@@ -1,4 +1,3 @@
-// modal
 const loadModalData = (id) => {
   fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
     .then((res) => res.json())
@@ -10,6 +9,7 @@ const displayDataModal = (data) => {
   console.log(data);
   const modal = document.getElementById("modal");
   modal.innerHTML = "";
+
   const div = document.createElement("div");
   div.classList.add("modal-content", "position-relative");
   div.innerHTML = `
@@ -84,7 +84,7 @@ const displayDataModal = (data) => {
               </div>
             </div>
           </div>
-          <div class="modal-content-2 col">
+          <div class="modal-content-2 col position-relative">
             <img class='img-fluid rounded-2 mb-4' src="${
               data.image_link[0]
             }" alt="" />
@@ -98,6 +98,14 @@ const displayDataModal = (data) => {
                 ? data.input_output_examples[0].output
                 : "No Data Found"
             }</p>
+
+            ${
+              data.accuracy && data.accuracy.score !== null ? 
+              `<div class="accuracy bg-danger text-white rounded-3 px-2 py-1">
+                ${data.accuracy.score * 100}% accuracy
+                </div>`
+              : ""
+            }
           </div>
         </div>
     `;
