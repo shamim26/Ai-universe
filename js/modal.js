@@ -6,7 +6,6 @@ const loadModalData = (id) => {
 
 // display data in modal
 const displayDataModal = (data) => {
-  console.log(data);
   const modal = document.getElementById("modal");
   modal.innerHTML = "";
 

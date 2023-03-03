@@ -8,14 +8,25 @@ const loadData = (dataLimit) => {
 const displayData = (dataLists, dataLimit) => {
   const cardSection = document.getElementById("card-col");
   cardSection.innerHTML = "";
+
+  // sort by date
+  document.getElementById("btn-sort").addEventListener("click", function () {
+    dataLists.sort(
+      (a, b) => new Date(a.published_in) - new Date(b.published_in)
+    );
+    displayData(dataLists, dataLimit);
+  });
+
   //   show only 6 card
   const seeMore = document.getElementById("btn-see-more");
+
   if (dataLists.length > 6 && dataLimit) {
     dataLists = dataLists.slice(0, 6);
     seeMore.classList.remove("d-none");
   } else {
-    seeMore.classList.add("d-none", true);
+    seeMore.classList.add("d-none");
   }
+
   //   dynamic cards
   dataLists.forEach((data) => {
     const cardDiv = document.createElement("div");
@@ -75,4 +86,3 @@ const loadingSpinner = (isLoading) => {
   }
 };
 loadingSpinner(true);
-
