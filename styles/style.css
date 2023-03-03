@@ -10,3 +10,29 @@
 #spinner{
     height: 400px !important;
 }
+
+.modal{
+    --bs-modal-header-border-width: 0px;
+    --bs-modal-width: 1070px;
+}
+.btn-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background-color: #eb5757;
+    color: white;
+    border-radius: 50%;
+    opacity: 1;
+}
+.modal-content-1{
+    background-color: #eb57570f;
+    border: 1px solid #eb5757;
+    border-radius: 7px;
+    padding: 25px;
+}
+.modal-content-2{
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    padding: 25px;
+}

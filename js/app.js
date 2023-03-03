@@ -17,6 +17,7 @@ const displayData = (dataLists, dataLimit) => {
   } else {
     seeMore.classList.add("d-none", true);
   }
+  //   dynamic card
   dataLists.forEach((data) => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("col");
@@ -45,7 +46,8 @@ const displayData = (dataLists, dataLimit) => {
                 >${data.published_in}</span
                 >
             </div>
-            <button id="btn-details" class="btn">
+            <button id="btn-details" class="btn"
+            data-bs-toggle="modal" data-bs-target="#ai-modal">
                 <img class="arrow" src="./images/icons/arrow.svg" alt="" />
             </button>
         </div>
@@ -53,7 +55,7 @@ const displayData = (dataLists, dataLimit) => {
     `;
     cardSection.appendChild(cardDiv);
   });
-//   spinner condition
+  //   spinner condition
   loadingSpinner(false);
 };
 
