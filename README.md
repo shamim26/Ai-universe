@@ -1,3 +1,2 @@
-# b7a6-ai-universe-assignment-shamim26
+# AI-Universe
 
-Note: Please sort the cards after clicking 'see more' button.
